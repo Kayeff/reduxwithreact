@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist.woff2");
+}
+
+@theme {
+  --font-geist: "Geist";
+  --color-rich-black: #071e22;
+  --color-seasalt: #fafafa;
+}
