@@ -1,9 +1,7 @@
-import React from "react";
-
 export default function UserProfile() {
   return (
-    <main className={classes.profile}>
-      <h2>My User Profile</h2>
-    </main>
+    <section className="w-full p-10 flex items-center justify-center">
+      <h2 className="tracking-tighter text-2xl">My User Profile</h2>
+    </section>
   );
 }
