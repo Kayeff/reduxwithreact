@@ -1,42 +1,34 @@
 import { Component } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
+import { counterActions } from "../store/index";
 
 export default function Counter() {
-  const counter = useSelector((state) => state.counter);
-  const toggleCounter = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter);
+  const toggleCounter = useSelector((state) => state.counter.showCounter);
   const dispatch = useDispatch();
 
   const toggleCounterHandler = () => {
-    dispatch({ type: "show" });
+    dispatch(counterActions.toggle());
   };
 
   const incrementHandler = () => {
-    dispatch({
-      type: "increment",
-    });
+    dispatch(counterActions.increment());
   };
 
   const increaseHandler = (value) => {
-    dispatch({
-      type: "increase",
-      payload: value,
-    });
+    dispatch(counterActions.increase(value));
   };
 
   const resetHandler = () => {
-    dispatch({
-      type: "reset",
-    });
+    dispatch(counterActions.reset());
   };
 
   const decrementHandler = () => {
-    dispatch({
-      type: "decrement",
-    });
+    dispatch(counterActions.decrement());
   };
 
   return (
-    <div className="w-1/2 flex items-center justify-center flex-col gap-5">
+    <div className="w-1/2 flex items-center justify-center flex-col gap-5 place-self-center">
       <h1 className="tracking-tighter text-4xl">Redux Counter</h1>
       <div className="flex items-center justify-center flex-col gap-5 p-10 border border-seasalt/20 w-full rounded-2xl">
         {toggleCounter && (
